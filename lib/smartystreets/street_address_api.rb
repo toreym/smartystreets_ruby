@@ -58,17 +58,9 @@ module SmartyStreets
     def self.street_address_responses(response)
       raise ApiError.from_code(response.code) unless response.code == 200
       raise ApiError.from_code(ApiError::NO_VALID_CANDIDATES) if response.body == nil || response.body.empty?
-      MultiJson.load(response.body)
+      MultiJson.load(response.body, :symbolize_keys => true).map do |response_element|
+        StreetAddressResponse.new(response_element)
+      end
     end
-
-    #location = Location.new
-    #location.street = l['delivery_line_1']
-    #location.city = l['components']['city_name']
-    #location.state = l['components']['state_abbreviation']
-    #location.zip_code = l['components']['zipcode'] + '-' + l['components']['plus4_code']
-    #location.delivery_point_barcode = l['delivery_point_barcode']
-    #location.components = l['components']
-    #location.meta_data = l['metadata']
-    #location
   end
 end

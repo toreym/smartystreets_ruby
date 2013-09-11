@@ -70,24 +70,4 @@ module SmartyStreets
   def self.api_url
     defined?(@@api_url) ? @@api_url : "https://api.smartystreets.com"
   end
-
-  # Set the number of candidates to be returned from the Street Address API.
-  #
-  # This method can only be called once, but is not required.
-  #
-  # @param [Fixnum] candidates the number of candidates
-  # @raise [ArgumentError] if the number of candiates is not between 1 and 10
-  # @return nil
-  def self.set_candidates(candidates)
-    @@candidates = check_type(candidates, Fixnum)
-    check_argument(!@@candidates > 0 && @@candidates < 11)
-    class << self
-      remove_method :set_candidates
-    end
-    nil
-  end
-
-  def self.candidates
-    defined?(@@candidates) ? @@candidates : 1
-  end
 end
