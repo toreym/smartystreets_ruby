@@ -1,7 +1,6 @@
 # -*- encoding: utf-8 -*-
 
 require 'centzy_common'
-require 'cgi'
 require 'httparty'
 require 'multi_json'
 
@@ -36,8 +35,8 @@ module SmartyStreets
 
     def self.query
       @@query ||= {
-        "auth-id" => CGI.escape(SmartyStreets.auth_id),
-        "auth-token" => CGI.escape(SmartyStreets.auth_token)
+        "auth-id" => SmartyStreets.auth_id,
+        "auth-token" => SmartyStreets.auth_token
       }
       @@query
     end
@@ -59,7 +58,7 @@ module SmartyStreets
     def self.street_address_responses(response)
       raise ApiError.from_code(response.code) unless response.code == 200
       raise ApiError.from_code(ApiError::NO_VALID_CANDIDATES) if response.body == nil || response.body.empty?
-      MultiJson.parse(response.body)
+      MultiJson.load(response.body)
     end
 
     #location = Location.new
