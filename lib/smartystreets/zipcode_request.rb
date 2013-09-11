@@ -21,7 +21,7 @@ module SmartyStreets
       @state = get_optional_string(hash, :state)
       @zipcode = get_optional_string(hash, :zipcode)
 
-      check_argument(!(!@city.empty? && @state.empty? && @zipcode.code))
+      check_argument(!(!@city && @state && @zipcode))
     end
 
     def to_json(*a)

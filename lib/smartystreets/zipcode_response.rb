@@ -24,13 +24,13 @@ module SmartyStreets
 
       error_status = get_optional_string(hash, :status)
       if error_status
-        @error_status = case status
-        when ErrorStatus::BLANK then status
-        when ErrorStatus::INVALID_STATE then status
-        when ErrorStatus::INVALID_CITY then status
-        when ErrorStatus::INVALID_ZIPCODE then status
-        when ErrorStatus::CONFLICT then status
-        else raise ArgumentError.new("Unrecognized status: #{status}")
+        @error_status = case error_status
+        when ErrorStatus::BLANK then error_status
+        when ErrorStatus::INVALID_STATE then error_status
+        when ErrorStatus::INVALID_CITY then error_status
+        when ErrorStatus::INVALID_ZIPCODE then error_status
+        when ErrorStatus::CONFLICT then error_status
+        else raise ArgumentError.new("Unrecognized error status: #{error_status}")
         end
       else
         city_states = get_optional_array(hash, :city_states)
@@ -87,8 +87,8 @@ module SmartyStreets
         @zipcode_type = get_optional_string(hash, :zipcode_type)
         @county_fips = get_optional_string(hash, :county_fips)
         @county_name = get_optional_string(hash, :county_name)
-        @latitude = get_optional_string(hash, :latitude)
-        @longitude = get_optional_string(hash, :longitude)
+        @latitude = get_optional_float(hash, :latitude)
+        @longitude = get_optional_float(hash, :longitude)
       end
     end
   end
