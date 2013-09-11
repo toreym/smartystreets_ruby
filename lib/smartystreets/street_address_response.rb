@@ -37,7 +37,6 @@ module SmartyStreets
       components = get_optional_hash(hash, :components)
       metadata = get_optional_hash(hash, :metadata)
       analysis = get_optional_hash(hash, :analysis)
-
       @components = Components.new(components) if components
       @metadata = Metadata.new(metadata) if metadata
       @analysis = Analysis.new(analysis) if analysis

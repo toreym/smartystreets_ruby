@@ -11,6 +11,9 @@ require 'smartystreets/api_error'
 require 'smartystreets/street_address_api'
 require 'smartystreets/street_address_request'
 require 'smartystreets/street_address_response'
+require 'smartystreets/zipcode_api'
+require 'smartystreets/zipcode_request'
+require 'smartystreets/zipcode_response'
 require 'smartystreets/version'
 
 # Wrapper module for the SmartyStreets API.

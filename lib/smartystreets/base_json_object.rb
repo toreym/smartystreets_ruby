@@ -12,7 +12,7 @@ module SmartyStreets
 
     def initialize(hash)
       check_hash_key_types(hash, Symbol)
-      check_hash_value_types(hash, String, Fixnum, Float, Hash)
+      check_hash_value_types(hash, String, Fixnum, Float, Hash, Array)
     end
 
     private
@@ -55,5 +55,14 @@ module SmartyStreets
       check_type(hash[key], Hash)
     end
 
+    def get_optional_array(hash, key)
+      hash.has_key?(key) && !hash[key].empty? ? check_type(hash[key], Array) : nil
+    end
+
+    def get_required_array(hash, key)
+      check_argument(hash.has_key?(key))
+      check_argument(!hash[key].empty?)
+      check_type(hash[key], Array)
+    end
   end
 end
