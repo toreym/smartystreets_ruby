@@ -1,4 +1,4 @@
 smartystreets
 ========
 
-SmartyStreets
+SmartyStreets API Wrapper for Ruby
