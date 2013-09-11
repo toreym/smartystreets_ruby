@@ -21,11 +21,12 @@ module SmartyStreets
     attr_reader :lastline
     attr_reader :addressee
     attr_reader :urbanization
+    attr_reader :candidates
 
     def initialize(hash)
       super(hash)
       @input_id = get_optional_string(hash, :input_id)
-      @street = get_required(hash, :street)
+      @street = get_required_string(hash, :street)
       @street2 = get_optional_string(hash, :street2)
       @secondary = get_optional_string(hash, :secondary)
       @city = get_optional_string(hash, :city)
@@ -33,7 +34,7 @@ module SmartyStreets
       @zipcode = get_optional_string(hash, :zipcode)
       @lastline = get_optional_string(hash, :lastline)
       @urbanization = get_optional_string(hash, :urbanization)
-      @candidates = get_optional_string(hash, :candidates)
+      @candidates = get_optional_fixnum(hash, :candidates)
     end
 
     def to_json(*a)

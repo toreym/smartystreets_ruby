@@ -4,13 +4,13 @@ lib = File.expand_path(File.dirname(__FILE__))
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'centzy_common'
-require 'cgi'
 require 'httparty'
 require 'multi_json'
 
 require 'smartystreets/api_error'
 require 'smartystreets/street_address_api'
 require 'smartystreets/street_address_request'
+require 'smartystreets/street_address_response'
 require 'smartystreets/version'
 
 # Wrapper module for the SmartyStreets API.
