@@ -12,7 +12,6 @@ module SmartyStreets
 
     def initialize(hash)
       check_hash_key_types(hash, Symbol)
-      check_hash_value_types(hash, String, Fixnum, Float, Hash, Array)
     end
 
     private
