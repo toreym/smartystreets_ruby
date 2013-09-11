@@ -4,7 +4,7 @@ require 'centzy_common'
 
 module SmartyStreets
 
-  # Base class for json requests and responses
+  # Base class for json requests and responses.
   #
   # @author Peter Edge <peter@centzy.com>
   class BaseJsonObject

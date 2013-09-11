@@ -3,6 +3,10 @@
 require 'centzy_common'
 
 module SmartyStreets
+
+  # Wraps errors returned from the SmartyStreets API.
+  #
+  # @author Peter Edge <peter@centzy.com>
   class ApiError < StandardError
     class << self
       include CentzyCommon::Preconditions

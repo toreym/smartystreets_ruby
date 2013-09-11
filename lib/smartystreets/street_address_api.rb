@@ -5,6 +5,10 @@ require 'httparty'
 require 'multi_json'
 
 module SmartyStreets
+  
+  # Exposes calls to the SmartyStreets Street Address API.
+  #
+  # @author Peter Edge <peter@centzy.com>
   class StreetAddressApi
     class << self
       include CentzyCommon::Preconditions
