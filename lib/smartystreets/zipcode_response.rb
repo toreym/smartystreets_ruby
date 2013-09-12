@@ -67,7 +67,7 @@ module SmartyStreets
       def initialize(hash)
         super(hash)
         @city = get_optional_string(hash, :city)
-        @state_abbreviation = get_optional_string(hash, :state_abbrevaition)
+        @state_abbreviation = get_optional_string(hash, :state_abbreviation)
         @state = get_optional_string(hash, :state)
       end
     end
