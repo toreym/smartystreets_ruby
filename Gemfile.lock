@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    smartystreets (0.0.7)
+    smartystreets (0.0.8)
       centzy_common
       httparty
       multi_json

@@ -53,7 +53,7 @@ module SmartyStreets
       @@headers ||= {
         "Content-Type" => "application/json",
         "Accept" => "application/json",
-        "x-standardize-only" => "false",
+        "x-standardize-only" => "true",
         "x-accept-keypair" => "false"
       }
       @@headers
