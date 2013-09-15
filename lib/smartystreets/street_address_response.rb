@@ -142,11 +142,11 @@ module SmartyStreets
         @dpv_cmra = get_optional_string(hash, :dpv_cmra)
         @dvp_vacant = get_optional_string(hash, :dvp_vacant)
         @active = get_optional_string(hash, :active)
-        @ews_match = get_optional_string(hash, :ews_match)
+        @ews_match = get_optional_boolean(hash, :ews_match)
         @footnotes = get_optional_string(hash, :footnotes)
         @lacslink_code = get_optional_string(hash, :lacslink_code)
         @lacslink_indicator = get_optional_string(hash, :lacslink_indicator)
-        @suitelink_match = get_optional_string(hash, :suitelink_match)
+        @suitelink_match = get_optional_boolean(hash, :suitelink_match)
       end
     end
   end
