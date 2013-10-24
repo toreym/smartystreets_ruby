@@ -32,31 +32,38 @@ module SmartyStreets
     end
 
 
-    def self.request_url
-      @@request_url ||= SmartyStreets.api_url + "/street-address"
-      @@request_url
+    @@request_url = CentzyCommon::Thread::LazyLoad.new do
+      SmartyStreets.api_url + "/street-address"
     end
 
-    def self.query
-      @@query ||= {
+    def self.request_url
+      @@request_url.get
+    end
+
+    @@query = CentzyCommon::Thread::LazyLoad.new do {
         "auth-id" => SmartyStreets.auth_id,
         "auth-token" => SmartyStreets.auth_token
       }
-      @@query
+    end
+
+    def self.query
+      @@query.get
     end
 
     def self.body(*street_address_requests)
       MultiJson.dump(street_address_requests)
     end
 
-    def self.headers
-      @@headers ||= {
+    @@headers = CentzyCommon::Thread::LazyLoad.new do {
         "Content-Type" => "application/json",
         "Accept" => "application/json",
         "x-standardize-only" => "true",
         "x-accept-keypair" => "false"
       }
-      @@headers
+    end
+
+    def self.headers
+      @@headers.get
     end
 
     def self.street_address_responses(response)

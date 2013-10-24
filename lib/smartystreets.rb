@@ -6,6 +6,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'centzy_common'
 require 'httparty'
 require 'multi_json'
+require 'thread'
 
 require 'smartystreets/api_error'
 require 'smartystreets/street_address_api'
@@ -27,6 +28,8 @@ module SmartyStreets
     include CentzyCommon::Preconditions
   end
 
+  @@lock = Mutex.new
+
   # Set the authentication id and token from SmartyStreets.
   #
   # This method must be called exactly once.
@@ -35,14 +38,16 @@ module SmartyStreets
   # @param [String] auth_token the authenticaton token
   # @return nil
   def self.set_auth(auth_id, auth_token)
-    @@auth_id = check_type(auth_id, String)
-    @@auth_token = check_type(auth_token, String)
-    check_argument(!@@auth_id.empty?)
-    check_argument(!@@auth_token.empty?)
-    class << self
-      remove_method :set_auth
+    @@lock.synchronize do
+      @@auth_id = check_type(auth_id, String)
+      @@auth_token = check_type(auth_token, String)
+      check_argument(!@@auth_id.empty?)
+      check_argument(!@@auth_token.empty?)
+      class << self
+        remove_method :set_auth
+      end
+      nil
     end
-    nil
   end
 
   def self.auth_id
@@ -62,12 +67,14 @@ module SmartyStreets
   # @param [String] api_url the API url
   # @return nil
   def self.set_api_url(api_url)
-    @@api_url = check_type(api_url, String)
-    check_argument(!@@api_url.empty?)
-    class << self
-      remove_method :set_api_url
+    @@lock.synchronize do
+      @@api_url = check_type(api_url, String)
+      check_argument(!@@api_url.empty?)
+      class << self
+        remove_method :set_api_url
+      end
+      nil
     end
-    nil
   end
 
   def self.api_url

@@ -31,30 +31,36 @@ module SmartyStreets
       }
     end
 
-
-    def self.request_url
-      @@request_url ||= SmartyStreets.api_url + "/zipcode"
-      @@request_url
+    @@request_url = CentzyCommon::Thread::LazyLoad.new do
+      SmartyStreets.api_url + "/zipcode"
     end
 
-    def self.query
-      @@query ||= {
+    def self.request_url
+      @@request_url.get
+    end
+
+    @@query = CentzyCommon::Thread::LazyLoad.new do {
         "auth-id" => SmartyStreets.auth_id,
         "auth-token" => SmartyStreets.auth_token
       }
-      @@query
+    end
+
+    def self.query
+      @@query.get
     end
 
     def self.body(*zipcode_requests)
       MultiJson.dump(zipcode_requests)
     end
 
-    def self.headers
-      @@headers ||= {
+    @@headers = CentzyCommon::Thread::LazyLoad.new do {
         "Content-Type" => "application/json",
         "Accept" => "application/json"
       }
-      @@headers
+    end
+
+    def self.headers
+      @@headers.get
     end
 
     def self.zipcode_responses(response)
