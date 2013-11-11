@@ -32,7 +32,7 @@ module SmartyStreets
     end
 
 
-    @@request_url = CentzyCommon::Thread::LazyLoad.new do
+    @@request_url = CentzyCommon::Concurrent::LazyLoad.new do
       SmartyStreets.api_url + "/street-address"
     end
 
@@ -40,7 +40,7 @@ module SmartyStreets
       @@request_url.get
     end
 
-    @@query = CentzyCommon::Thread::LazyLoad.new do {
+    @@query = CentzyCommon::Concurrent::LazyLoad.new do {
         "auth-id" => SmartyStreets.auth_id,
         "auth-token" => SmartyStreets.auth_token
       }
@@ -54,7 +54,7 @@ module SmartyStreets
       MultiJson.dump(street_address_requests)
     end
 
-    @@headers = CentzyCommon::Thread::LazyLoad.new do {
+    @@headers = CentzyCommon::Concurrent::LazyLoad.new do {
         "Content-Type" => "application/json",
         "Accept" => "application/json",
         "x-standardize-only" => "true",
