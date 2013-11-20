@@ -10,8 +10,11 @@ module SmartyStreets
   class BaseJsonObject
     include CentzyCommon::Preconditions
 
+    attr_reader :to_hash
+
     def initialize(hash)
       check_hash_key_types(hash, Symbol)
+      @to_hash = hash.dup.freeze
     end
 
     private
