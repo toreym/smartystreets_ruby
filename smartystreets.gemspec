@@ -22,6 +22,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "centzy_common"
   gem.add_dependency "httparty"
   gem.add_dependency "multi_json"
+  gem.add_dependency "awesome_print"
 
   gem.add_development_dependency "rake"
   gem.add_development_dependency "rspec"

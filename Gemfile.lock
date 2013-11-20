@@ -8,6 +8,7 @@ PATH
   remote: .
   specs:
     smartystreets (0.0.20131120.20.14.35)
+      awesome_print
       centzy_common
       httparty
       multi_json
@@ -16,6 +17,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     atomic (1.1.14)
+    awesome_print (1.2.0)
     centzy_common (0.5.20131115.14.55.49)
       atomic
       locality-uuid
