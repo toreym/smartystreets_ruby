@@ -17,6 +17,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     atomic (1.1.14)
+    atomic (1.1.14-java)
     awesome_print (1.2.0)
     centzy_common (0.5.20131115.14.55.49)
       atomic
@@ -28,6 +29,7 @@ GEM
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     json (1.8.1)
+    json (1.8.1-java)
     locality-uuid (1.0.0)
       atomic
       macaddr
@@ -53,6 +55,7 @@ GEM
     yard (0.8.7.3)
 
 PLATFORMS
+  java
   ruby
 
 DEPENDENCIES
