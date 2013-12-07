@@ -1,7 +1,5 @@
 # -*- encoding: utf-8 -*-
 
-require 'centzy_common'
-
 module SmartyStreets
 
   # Wraps errors returned from the SmartyStreets API.

@@ -1,9 +1,5 @@
 # -*- encoding: utf-8 -*-
 
-require 'centzy_common'
-require 'httparty'
-require 'multi_json'
-
 module SmartyStreets
   
   # Exposes calls to the SmartyStreets Street Address API.
@@ -32,7 +28,7 @@ module SmartyStreets
     end
 
 
-    @@request_url = CentzyCommon::Concurrent::LazyLoad.new do
+    @@request_url = LazyLoader.create_lazy_loader do
       SmartyStreets.api_url + "/street-address"
     end
 
@@ -40,7 +36,7 @@ module SmartyStreets
       @@request_url.get
     end
 
-    @@query = CentzyCommon::Concurrent::LazyLoad.new do {
+    @@query = LazyLoader.create_lazy_loader do {
         "auth-id" => SmartyStreets.auth_id,
         "auth-token" => SmartyStreets.auth_token
       }
@@ -54,7 +50,7 @@ module SmartyStreets
       MultiJson.dump(street_address_requests)
     end
 
-    @@headers = CentzyCommon::Concurrent::LazyLoad.new do {
+    @@headers = LazyLoader.create_lazy_loader do {
         "Content-Type" => "application/json",
         "Accept" => "application/json",
         "x-standardize-only" => "true",

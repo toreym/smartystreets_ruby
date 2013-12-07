@@ -1,7 +1,5 @@
 # -*- encoding: utf-8 -*-
 
-require 'centzy_common'
-
 require 'smartystreets/base_json_object'
 
 module SmartyStreets

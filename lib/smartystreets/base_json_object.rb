@@ -1,7 +1,5 @@
 # -*- encoding: utf-8 -*-
 
-require 'centzy_common'
-
 module SmartyStreets
 
   # Base class for json requests and responses.
