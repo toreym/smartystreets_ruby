@@ -6,7 +6,7 @@ module SmartyStreets
 
   # Represents a response for a zipcode.
   #
-  # @author Peter Edge <peter@centzy.com>
+  # @author Peter Edge (peter@locality.com)
   class ZipcodeResponse < BaseJsonObject
 
     module ErrorStatus

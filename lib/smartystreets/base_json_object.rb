@@ -4,7 +4,7 @@ module SmartyStreets
 
   # Base class for json requests and responses.
   #
-  # @author Peter Edge <peter@centzy.com>
+  # @author Peter Edge (peter@locality.com)
   class BaseJsonObject
     include CentzyCommon::Preconditions
 

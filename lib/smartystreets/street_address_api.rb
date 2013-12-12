@@ -4,7 +4,7 @@ module SmartyStreets
   
   # Exposes calls to the SmartyStreets Street Address API.
   #
-  # @author Peter Edge <peter@centzy.com>
+  # @author Peter Edge (peter@locality.com)
   class StreetAddressApi
     class << self
       include CentzyCommon::Preconditions

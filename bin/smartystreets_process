@@ -4,7 +4,6 @@ require 'smartystreets'
 require 'awesome_print'
 require 'optparse'
 
-
 def argv_to_input(argv)
   argv.chomp.strip.chomp.strip.split(',').map do |element|
     element.chomp.strip.chomp.strip

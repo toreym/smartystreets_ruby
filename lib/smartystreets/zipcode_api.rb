@@ -4,7 +4,7 @@ module SmartyStreets
   
   # Exposes calls to the SmartyStreets Zipcode API.
   #
-  # @author Peter Edge <peter@centzy.com>
+  # @author Peter Edge (peter@locality.com)
   class ZipcodeApi
     class << self
       include CentzyCommon::Preconditions

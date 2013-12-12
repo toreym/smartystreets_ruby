@@ -6,7 +6,7 @@ module SmartyStreets
 
   # Represents a request for a street address.
   #
-  # @author Peter Edge <peter@centzy.com>
+  # @author Peter Edge (peter@locality.com)
   class StreetAddressRequest < BaseJsonObject
 
     attr_reader :input_id
