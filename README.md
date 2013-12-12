@@ -7,7 +7,8 @@ SmartyStreets API Wrapper for Ruby.
 Wraps both the Street Address API and Zipcode API.
 
 http://smartystreets.com/  
-http://smartystreets.com/kb/liveaddress-api/
+http://smartystreets.com/kb/liveaddress-api/  
+https://github.com/smartystreets/LiveAddressSamples/tree/master/ruby
 
 ## Installation
 
