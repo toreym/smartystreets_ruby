@@ -10,20 +10,6 @@ http://smartystreets.com/
 http://smartystreets.com/kb/liveaddress-api/  
 https://github.com/smartystreets/LiveAddressSamples/tree/master/ruby
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'smartystreets'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install smartystreets
-
 ## Usage
 
 You must have a valid auth-id and auth-token from SmartyStreets.
