@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 
-require 'centzy_common'
 require 'lazy_loader'
 require 'httparty'
 require 'multi_json'
 require 'thread'
 
+require 'smartystreets/util'
 require 'smartystreets/api_error'
 require 'smartystreets/street_address_api'
 require 'smartystreets/street_address_request'
@@ -17,16 +17,24 @@ require 'smartystreets/version'
 
 # Wrapper module for the SmartyStreets API.
 #
-# Covers both the Street Address and Zipcode APIs.
+# Covers both the Street Address and Zipcode APIs.<br>
 # www.smartystreets.com
 #
-# @author Peter Edge <peter@centzy.com>
+# @author Peter Edge (peter@locality.com)
 module SmartyStreets
   class << self
-    include CentzyCommon::Preconditions
+    include Util
   end
 
   @@lock = Mutex.new
+
+  def self.set_type_checking(type_checking)
+    Util.set_type_checking(type_checking)
+  end
+
+  def self.type_checking?
+    Util.type_checking?
+  end
 
   # Set the authentication id and token from SmartyStreets.
   #

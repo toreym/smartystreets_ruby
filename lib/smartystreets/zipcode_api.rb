@@ -7,7 +7,7 @@ module SmartyStreets
   # @author Peter Edge (peter@locality.com)
   class ZipcodeApi
     class << self
-      include CentzyCommon::Preconditions
+      include Util
     end
 
     private_class_method :new

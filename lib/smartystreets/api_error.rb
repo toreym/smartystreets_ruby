@@ -7,7 +7,7 @@ module SmartyStreets
   # @author Peter Edge (peter@locality.com)
   class ApiError < StandardError
     class << self
-      include CentzyCommon::Preconditions
+      include Util
     end
 
     BAD_INPUT = 400

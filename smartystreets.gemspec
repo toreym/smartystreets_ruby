@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.name          = "smartystreets"
   gem.version       = SmartyStreets::GEM_VERSION
   gem.authors       = ["Peter Edge"]
-  gem.email         = ["peter@centzy.com"]
+  gem.email         = ["peter@locality.com"]
   gem.summary       = %{SmartyStreets API Wrapper}
   gem.description   = %{SmartyStreets API Wrapper for Ruby}
   gem.homepage      = "https://github.com/centzy/smartystreets"
@@ -19,7 +19,6 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency "centzy_common"
   gem.add_dependency "lazy_loader"
   gem.add_dependency "httparty"
   gem.add_dependency "multi_json"

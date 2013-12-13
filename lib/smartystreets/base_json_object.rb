@@ -6,7 +6,7 @@ module SmartyStreets
   #
   # @author Peter Edge (peter@locality.com)
   class BaseJsonObject
-    include CentzyCommon::Preconditions
+    include Util
 
     attr_reader :to_hash
 

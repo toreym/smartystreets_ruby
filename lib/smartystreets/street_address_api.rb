@@ -7,7 +7,7 @@ module SmartyStreets
   # @author Peter Edge (peter@locality.com)
   class StreetAddressApi
     class << self
-      include CentzyCommon::Preconditions
+      include Util
     end
 
     private_class_method :new
