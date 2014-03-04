@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["peter@locality.com"]
   gem.summary       = %{SmartyStreets API Wrapper}
   gem.description   = %{SmartyStreets API Wrapper for Ruby}
-  gem.homepage      = "https://github.com/centzy/smartystreets"
+  gem.homepage      = "https://github.com/peter-edge/smartystreets"
   gem.license       = "MIT"
 
   gem.files         = `git ls-files`.split($/)
