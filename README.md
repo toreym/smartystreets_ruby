@@ -1,6 +1,6 @@
 # SmartyStreets
 
-[![Build Status](https://travis-ci.org/peter-edge/smartystreets.png?branch=master)](https://travis-ci.org/peter-edge/smartystreets)
+[![Build Status](https://travis-ci.org/peter-edge/smartystreets_ruby.png?branch=master)](https://travis-ci.org/peter-edge/smartystreets_ruby)
 
 SmartyStreets API Wrapper for Ruby.
 
