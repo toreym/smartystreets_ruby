@@ -31,7 +31,7 @@ module SmartyStreets
       @delivery_line_2 = get_optional_string(hash, :delivery_line_2)
       @last_line = get_optional_string(hash, :last_line)
       @delivery_point_barcode = get_optional_string(hash, :delivery_point_barcode)
-      
+
       components = get_optional_hash(hash, :components)
       metadata = get_optional_hash(hash, :metadata)
       analysis = get_optional_hash(hash, :analysis)
@@ -125,7 +125,7 @@ module SmartyStreets
       attr_reader :dpv_match_code
       attr_reader :dpv_footnotes
       attr_reader :dpv_cmra
-      attr_reader :dvp_vacant
+      attr_reader :dpv_vacant
       attr_reader :active
       attr_reader :ews_match
       attr_reader :footnotes
@@ -138,7 +138,7 @@ module SmartyStreets
         @dpv_match_code = get_optional_string(hash, :dpv_match_code)
         @dpv_footnotes = get_optional_string(hash, :dpv_footnotes)
         @dpv_cmra = get_optional_string(hash, :dpv_cmra)
-        @dvp_vacant = get_optional_string(hash, :dvp_vacant)
+        @dpv_vacant = get_optional_string(hash, :dpv_vacant)
         @active = get_optional_string(hash, :active)
         @ews_match = get_optional_boolean(hash, :ews_match)
         @footnotes = get_optional_string(hash, :footnotes)
