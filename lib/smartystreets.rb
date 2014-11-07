@@ -20,7 +20,7 @@ require 'smartystreets/version'
 # Covers both the Street Address and Zipcode APIs.<br>
 # www.smartystreets.com
 #
-# @author Peter Edge (peter@locality.com)
+# @author Peter Edge (peter.edge@gmail.com)
 module SmartyStreets
   class << self
     include Util
@@ -57,12 +57,12 @@ module SmartyStreets
   end
 
   def self.auth_id
-    raise StandardError.new("set_auth must be called!") unless defined?(@@auth_id)
+    raise StandardError.new('set_auth must be called!') unless defined?(@@auth_id)
     @@auth_id
   end
 
   def self.auth_token
-    raise StandardError.new("set_auth must be called!") unless defined?(@@auth_token)
+    raise StandardError.new('set_auth must be called!') unless defined?(@@auth_token)
     @@auth_token
   end
 
@@ -84,6 +84,6 @@ module SmartyStreets
   end
 
   def self.api_url
-    defined?(@@api_url) ? @@api_url : "https://api.smartystreets.com"
+    defined?(@@api_url) ? @@api_url : 'https://api.smartystreets.com'
   end
 end

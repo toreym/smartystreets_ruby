@@ -4,7 +4,7 @@ module SmartyStreets
 
   # Base class for json requests and responses.
   #
-  # @author Peter Edge (peter@locality.com)
+  # @author Peter Edge (peter.edge@gmail.com)
   class BaseJsonObject
     include Util
 

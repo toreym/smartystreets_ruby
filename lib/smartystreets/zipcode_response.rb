@@ -6,15 +6,15 @@ module SmartyStreets
 
   # Represents a response for a zipcode.
   #
-  # @author Peter Edge (peter@locality.com)
+  # @author Peter Edge (peter.edge@gmail.com)
   class ZipcodeResponse < BaseJsonObject
 
     module ErrorStatus
-      BLANK = "blank"
-      INVALID_STATE = "invalid_state"
-      INVALID_CITY = "invalid_city"
-      INVALID_ZIPCODE = "invalid_zipcode"
-      CONFLICT = "conflict"
+      BLANK = 'blank'
+      INVALID_STATE = 'invalid_state'
+      INVALID_CITY = 'invalid_city'
+      INVALID_ZIPCODE = 'invalid_zipcode'
+      CONFLICT = 'conflict'
     end
 
     def initialize(hash)

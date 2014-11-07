@@ -59,7 +59,7 @@ http://www.locality.com
 ## Authors
 
 Peter Edge  
-peter@locality.com  
+peter.edge@gmail.com  
 http://github.com/peter-edge
 
 ## License
