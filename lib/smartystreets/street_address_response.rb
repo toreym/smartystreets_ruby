@@ -101,6 +101,9 @@ module SmartyStreets
       attr_reader :latitude
       attr_reader :longitude
       attr_reader :precision
+      attr_reader :time_zone
+      attr_reader :utc_offset
+      attr_reader :dst
 
       def initialize(hash)
         super(hash)
@@ -117,6 +120,9 @@ module SmartyStreets
         @latitude = get_optional_float(hash, :latitude)
         @longitude = get_optional_float(hash, :longitude)
         @precision = get_optional_string(hash, :precision)
+        @time_zone = get_optional_string(hash, :time_zone)
+        @utc_offset = get_optional_fixnum(hash, :utc_offset)
+        @dst = get_optional_boolean(hash, :dst)
       end
     end
 
