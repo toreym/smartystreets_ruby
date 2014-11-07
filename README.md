@@ -12,6 +12,11 @@ https://github.com/smartystreets/LiveAddressSamples/tree/master/ruby
 
 ## Usage
 
+This can be installed directly from RubyGems.
+```bash
+gem install smartystreets
+```
+
 You must have a valid auth-id and auth-token from SmartyStreets.
 
 ```ruby
