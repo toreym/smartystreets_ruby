@@ -1,0 +1,30 @@
+{
+  "images": {
+    "lib": {
+      "image": "ruby:2.2.0"
+    }
+  },
+  "targets": [
+    {
+      "name": "provision",
+      "steps": [
+        {
+          "type": "command",
+          "image": "lib",
+          "command": "bundle install"
+        }
+      ]
+    },
+    {
+      "name": "test",
+      "from": "provision",
+      "steps": [
+        {
+          "type": "command",
+          "image": "lib",
+          "command": "bundle exec rake"
+        }
+      ]
+    }
+  ]
+}
