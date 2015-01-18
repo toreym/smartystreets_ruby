@@ -1,19 +1,23 @@
 {
   "builds": [
     {
-      "path": ".",
-      "name": "lib:base"
+      "name": "lib:base",
+      "path": "."
     }
   ],
-  "nodes": {
-    "lib:base": {
+  "nodes": [
+    {
+      "name": "lib:base",
       "image": "lib:base"
     }
-  },
+  ],
   "steps": [
     {
+      "name": "provision",
       "type": "docker",
-      "node": "lib:base",
+      "node": {
+        "name": "lib:base"
+      }
       "commit": "lib:provision",
       "exec": {
         "type": "bash",
@@ -21,8 +25,11 @@
       }
     },
     {
+      "name": "test",
       "type": "docker",
-      "node": "lib:provision",
+      "node": {
+        "name": "lib:provision"
+      },
       "exec": {
         "type": "bash",
         "path": "bundle exec rake"
