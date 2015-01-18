@@ -5,7 +5,7 @@
       "name": "lib:base"
     }
   ],
-  "cluster": {
+  "nodes": {
     "lib:base": {
       "image": "lib:base"
     }
@@ -16,7 +16,7 @@
       "node": "lib:base",
       "commit": "lib:provision",
       "exec": {
-        "type": "command",
+        "type": "bash",
         "path": "bundle install"
       }
     },
@@ -24,7 +24,7 @@
       "type": "docker",
       "node": "lib:provision",
       "exec": {
-        "type": "command",
+        "type": "bash",
         "path": "bundle exec rake"
       }
     }
