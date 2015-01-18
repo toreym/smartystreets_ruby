@@ -17,7 +17,7 @@
       "type": "docker",
       "node": {
         "name": "lib:base"
-      }
+      },
       "commit": "lib:provision",
       "exec": {
         "type": "bash",
