@@ -3,30 +3,31 @@ nodes:
     image: libsmartystreets
   - name: ubuntu:trusty
     image: ubuntu:trusty
-    environment:
+    env:
       FOO: bar
-builds:
+steps:
   - name: libsmartystreets
-    dockerfile_path: Dockerfile
+    type: build
+    image_name: libsmartystreets
+    build_file_path: Dockerfile
     configure:
       node:
         name: ubuntu:trusty
       command: bash .codeship/echo_foo.sh foo_output.txt
-steps:
   - name: echo_foo
-    type: docker
+    type: run
     node:
       name: libsmartystreets
     command: cat foo_output.txt
   - name: only_codeship
     tag: codeship
-    type: docker
+    type: run
     node:
       name: libsmartystreets
     command: echo THIS SHOULD ONLY BE RUN ON THE CODESHIP TAG
   - name: only_master
     tag: master
-    type: docker
+    type: run
     node:
       name: libsmartystreets
     command: echo THIS SHOULD ONLY BE RUN ON THE MASTER TAG
@@ -34,12 +35,12 @@ steps:
     type: parallel
     steps:
       - name: pwd
-        type: docker
+        type: run
         node:
           name: libsmartystreets
         command: pwd
       - name: ls
-        type: docker
+        type: run
         node:
           name: libsmartystreets
         command: ls
@@ -47,23 +48,23 @@ steps:
         type: parallel
         steps:
           - name: echo_something
-            type: docker
+            type: run
             node:
               name: libsmartystreets
             command: echo something
           - name: echo_something_else
-            type: docker
+            type: run
             node:
               name: libsmartystreets
             command: echo something_else
   - name: provision
-    type: docker
+    type: run
     node:
       name: libsmartystreets
     commit: libsmartystreets:provision
     command: bundle install -j8
   - name: test
-    type: docker
+    type: run
     node:
       name: libsmartystreets:provision
     command: bundle exec rake
