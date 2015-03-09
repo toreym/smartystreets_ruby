@@ -1,70 +1,45 @@
 nodes:
-  - name: libsmartystreets
-    image: libsmartystreets
-  - name: ubuntu:trusty
-    image: ubuntu:trusty
-    env:
-      FOO: bar
+  - name: smartystreets_ruby
+    image: smartystreets_ruby
+  - name: smartystreets_jruby
+    image: smartystreets_jruby
 steps:
-  - name: libsmartystreets
-    type: build
-    image_name: libsmartystreets
-    build_file_path: Dockerfile
-    configure:
-      node:
-        name: ubuntu:trusty
-      command: bash .codeship/echo_foo.sh foo_output.txt
-  - name: echo_foo
-    type: run
-    node:
-      name: libsmartystreets
-    command: cat foo_output.txt
-  - name: only_codeship
-    tag: codeship
-    type: run
-    node:
-      name: libsmartystreets
-    command: echo THIS SHOULD ONLY BE RUN ON THE CODESHIP TAG
-  - name: only_master
-    tag: master
-    type: run
-    node:
-      name: libsmartystreets
-    command: echo THIS SHOULD ONLY BE RUN ON THE MASTER TAG
-  - name: parallel_stuff
+  - name: build_parallel
     type: parallel
     steps:
-      - name: pwd
-        type: run
-        node:
-          name: libsmartystreets
-        command: pwd
-      - name: ls
-        type: run
-        node:
-          name: libsmartystreets
-        command: ls
-      - name: parallel_recursive
-        type: parallel
-        steps:
-          - name: echo_something
-            type: run
-            node:
-              name: libsmartystreets
-            command: echo something
-          - name: echo_something_else
-            type: run
-            node:
-              name: libsmartystreets
-            command: echo something_else
-  - name: provision
-    type: run
-    node:
-      name: libsmartystreets
-    commit: libsmartystreets:provision
-    command: bundle install -j8
-  - name: test
-    type: run
-    node:
-      name: libsmartystreets:provision
-    command: bundle exec rake
+    - name: build_smartystreets_ruby
+      type: build
+      image_name: smartystreets_ruby
+      build_file_path: Dockerfile.ruby-2.2.0
+    - name: build_smartystreets_jruby
+      type: build
+      image_name: smartystreets_jruby
+      build_file_path: Dockerfile.jruby-1.7.19
+  - name: provision_parallel
+    type: parallel
+    steps:
+    - name: provision_ruby
+      type: run
+      node:
+        name: smartystreets_ruby
+      commit: smartystreets_ruby:provision
+      command: bundle install -j8
+    - name: provision_jruby
+      type: run
+      node:
+        name: smartystreets_jruby
+      commit: smartystreets_jruby:provision
+      command: bundle install -j8
+  - name: test_parallel
+    type: parallel
+    steps:
+    - name: test_ruby
+      type: run
+      node:
+        name: smartystreets_ruby:provision
+      command: bundle exec rake
+    - name: test_jruby
+      type: run
+      node:
+        name: smartystreets_jruby:provision
+      command: bundle exec rake
