@@ -21,10 +21,10 @@ steps:
     - name: test_ruby
       type: run
       node:
-        name: smartystreets_ruby:provision
+        name: smartystreets_ruby
       command: bundle exec rake
     - name: test_jruby
       type: run
       node:
-        name: smartystreets_jruby:provision
+        name: smartystreets_jruby
       command: bundle exec rake
