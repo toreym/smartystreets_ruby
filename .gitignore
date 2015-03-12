@@ -7,6 +7,4 @@ tmp
 _yardoc
 doc/
 
-Gemfile.lock
 tags
-Dockerfile

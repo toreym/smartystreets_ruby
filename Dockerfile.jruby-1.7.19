@@ -1,4 +1,5 @@
-FROM ruby:2.2.0
+FROM jruby:1.7.19
 RUN mkdir -p /app
 WORKDIR /app
 ADD . /app
+RUN bundle install -j8
