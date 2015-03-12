@@ -1,4 +1,4 @@
-FROM jruby:1.7.19
+FROM jruby:1.7.19-jdk
 RUN mkdir -p /app
 WORKDIR /app
 ADD Gemfile.lock /app/
