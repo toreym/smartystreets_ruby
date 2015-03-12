@@ -20,11 +20,9 @@ steps:
     steps:
     - name: test_ruby
       type: run
-      node:
-        name: smartystreets_ruby
+      node: smartystreets_ruby
       command: bundle exec rake
     - name: test_jruby
       type: run
-      node:
-        name: smartystreets_jruby
+      node: smartystreets_jruby
       command: bundle exec rake
