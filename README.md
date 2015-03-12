@@ -1,6 +1,5 @@
 # SmartyStreets
 
-[![Build Status](https://travis-ci.org/peter-edge/smartystreets_ruby.png?branch=master)](https://travis-ci.org/peter-edge/smartystreets_ruby)
 [ ![Codeship Status for peter-edge/smartystreets_ruby](https://codeship.io/projects/f2c09bd0-48b9-0132-8578-2e3c5d17d0f4/status)](https://codeship.io/projects/45960)
 
 SmartyStreets API Wrapper for Ruby.
