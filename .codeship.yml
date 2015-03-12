@@ -1,20 +1,13 @@
 nodes:
-  - name: smartystreets_ruby
-    image: smartystreets_ruby
-  - name: smartystreets_jruby
-    image: smartystreets_jruby
+  smartystreets_ruby:
+    build:
+      image: smartystreets_ruby
+      dockerfile_path: Dockerfile.ruby-2.2.0
+  smartystreets_jruby:
+    build:
+      image: smartystreets_jruby
+      dockerfile_path: Dockerfile.jruby-1.7.19
 steps:
-  - name: build_parallel
-    type: parallel
-    steps:
-    - name: build_smartystreets_ruby
-      type: build
-      image_name: smartystreets_ruby
-      build_file_path: Dockerfile.ruby-2.2.0
-    - name: build_smartystreets_jruby
-      type: build
-      image_name: smartystreets_jruby
-      build_file_path: Dockerfile.jruby-1.7.19
   - name: test_parallel
     type: parallel
     steps:
