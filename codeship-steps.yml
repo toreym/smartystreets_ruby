@@ -1,0 +1,11 @@
+- name: test_parallel
+  type: parallel
+  steps:
+  - name: test_ruby
+    type: run
+    service: smartystreets_ruby
+    command: bundle exec rake
+  - name: test_jruby
+    type: run
+    service: smartystreets_jruby
+    command: bundle exec rake

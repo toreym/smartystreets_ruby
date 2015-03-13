@@ -1,0 +1,8 @@
+smartystreets_ruby:
+  build:
+    image: smartystreets_ruby
+    dockerfile_path: Dockerfile.ruby-2.2.0
+smartystreets_jruby:
+  build:
+    image: smartystreets_jruby
+    dockerfile_path: Dockerfile.jruby-1.7.19
