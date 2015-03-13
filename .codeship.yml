@@ -1,4 +1,4 @@
-nodes:
+services:
   smartystreets_ruby:
     build:
       image: smartystreets_ruby
@@ -13,9 +13,9 @@ steps:
     steps:
     - name: test_ruby
       type: run
-      node: smartystreets_ruby
+      service: smartystreets_ruby
       command: bundle exec rake
     - name: test_jruby
       type: run
-      node: smartystreets_jruby
+      service: smartystreets_jruby
       command: bundle exec rake
