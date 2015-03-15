@@ -1,11 +1,25 @@
-- name: test_parallel
-  type: parallel
+- name: test_matrix
+  type: matrix
+  services:
+    - smartystreets_ruby
+    - smartystreets_jruby
   steps:
-  - name: test_ruby
-    type: run
-    service: smartystreets_ruby
-    command: bundle exec rake
-  - name: test_jruby
-    type: run
-    service: smartystreets_jruby
-    command: bundle exec rake
+  - name: test_matrix_parallel
+    type: parallel
+    steps:
+    - name: test
+      type: matrix_run
+      command: bundle exec rake
+    - name: test_volume
+      type: serial
+      steps:
+      - name: write_to_volume
+        type: matrix_run
+        command: touch /foo/bar
+      - name: ls_volume
+        type: matrix_run
+        command: ls /foo
+    - name: test_env
+      type: matrix_run
+      service: smartystreets_ruby
+      command: env
