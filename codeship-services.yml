@@ -8,6 +8,7 @@ smartystreets_ruby:
   build:
     image: smartystreets_ruby
     dockerfile_path: Dockerfile.ruby-2.2.0
+  tty: true
   volumes_from:
     - data
   links:
