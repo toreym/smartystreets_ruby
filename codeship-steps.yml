@@ -1,7 +1,7 @@
 - type: matrix
   services:
-    - smartystreets_ruby
-    - smartystreets_jruby
+    - ruby
+    - jruby
   steps:
   - type: parallel
     steps:
