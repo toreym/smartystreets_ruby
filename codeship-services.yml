@@ -7,7 +7,7 @@ foo:
 ruby:
   build:
     image: smartystreets_ruby
-    dockerfile_path: Dockerfile.ruby-2.2.0
+    dockerfile_path: Dockerfile.ruby-2.2.2
   volumes_from:
     - data
   links:
