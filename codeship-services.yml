@@ -3,7 +3,7 @@ data:
   volumes:
     - /foo
 foo:
-  image: orchardup/postgresql
+  image: postgres
 ruby:
   build:
     image: smartystreets_ruby
