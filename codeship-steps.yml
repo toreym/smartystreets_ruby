@@ -11,3 +11,5 @@
       - command: touch /foo/bar
       - command: ls /foo
     - command: env
+  - tag: foo
+    command: echo this should only be run if tagged foo
