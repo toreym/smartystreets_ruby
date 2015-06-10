@@ -13,3 +13,6 @@
     - command: env
   - tag: foo
     command: echo this should only be run if tagged foo
+- tag: error
+  service: ruby
+  command: bash bin/error.sh
