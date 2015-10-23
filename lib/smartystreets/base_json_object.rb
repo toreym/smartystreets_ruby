@@ -45,6 +45,15 @@ module SmartyStreets
       check_type(hash[key], Float)
     end
 
+    def get_optional_number(hash, key)
+      hash[key] != nil ? check_type(hash[key], Float, Fixnum) : nil
+    end
+
+    def get_required_number(hash, key)
+      check_argument(hash[key] != nil)
+      check_type(hash[key], Float, Fixnum)
+    end
+    
     def get_optional_boolean(hash, key)
       hash[key] != nil ? check_type(hash[key], TrueClass, FalseClass) : nil
     end
