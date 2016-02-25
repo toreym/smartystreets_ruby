@@ -46,12 +46,12 @@ module SmartyStreets
     end
 
     def get_optional_float(hash, key)
-      hash[key] != nil ? check_type(hash[key], Float) : nil
+      hash[key] != nil ? check_type(hash[key], Float, Integer) : nil
     end
 
     def get_required_float(hash, key)
       check_argument(hash[key] != nil, -> { "#{key} was nil and should be a float"})
-      check_type(hash[key], Float)
+      check_type(hash[key], Float, Integer)
     end
 
     def get_optional_boolean(hash, key)
