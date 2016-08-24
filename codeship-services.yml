@@ -1,0 +1,22 @@
+data:
+  image: busybox
+  volumes:
+    - /foo
+foo:
+  image: postgres
+ruby:
+  build:
+    image: smartystreets_ruby
+    dockerfile_path: Dockerfile.ruby-2.2.2
+  volumes_from:
+    - data
+  links:
+    - foo
+jruby:
+  build:
+    image: smartystreets_jruby
+    dockerfile_path: Dockerfile.jruby-1.7.19
+  volumes_from:
+    - data
+  links:
+    - foo

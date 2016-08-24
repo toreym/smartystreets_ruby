@@ -4,7 +4,7 @@ module SmartyStreets
   
   # Exposes calls to the SmartyStreets Street Address API.
   #
-  # @author Peter Edge (peter@locality.com)
+  # @author Peter Edge (peter.edge@gmail.com)
   class StreetAddressApi
     class << self
       include Util
@@ -29,16 +29,17 @@ module SmartyStreets
 
 
     @@request_url = LazyLoader.create_lazy_loader do
-      SmartyStreets.api_url + "/street-address"
+      SmartyStreets.api_url + '/street-address'
     end
 
     def self.request_url
       @@request_url.get
     end
 
-    @@query = LazyLoader.create_lazy_loader do {
-        "auth-id" => SmartyStreets.auth_id,
-        "auth-token" => SmartyStreets.auth_token
+    @@query = LazyLoader.create_lazy_loader do
+      {
+        'auth-id' => SmartyStreets.auth_id,
+        'auth-token' => SmartyStreets.auth_token
       }
     end
 
@@ -50,11 +51,12 @@ module SmartyStreets
       MultiJson.dump(street_address_requests)
     end
 
-    @@headers = LazyLoader.create_lazy_loader do {
-        "Content-Type" => "application/json",
-        "Accept" => "application/json",
-        "x-standardize-only" => "true",
-        "x-accept-keypair" => "false"
+    @@headers = LazyLoader.create_lazy_loader do
+      {
+        'Content-Type' => 'application/json',
+        'Accept' => 'application/json',
+        'x-standardize-only' => 'true',
+        'x-accept-keypair' => 'false'
       }
     end
 

@@ -4,7 +4,7 @@ module SmartyStreets
 
   # Utility functions.
   #
-  # @author Peter Edge (peter@locality.com)
+  # @author Peter Edge (peter.edge@gmail.com)
   module Util
 
     @@lock = Mutex.new

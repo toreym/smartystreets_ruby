@@ -4,7 +4,7 @@ module SmartyStreets
   
   # Exposes calls to the SmartyStreets Zipcode API.
   #
-  # @author Peter Edge (peter@locality.com)
+  # @author Peter Edge (peter.edge@gmail.com)
   class ZipcodeApi
     class << self
       include Util
@@ -28,16 +28,17 @@ module SmartyStreets
     end
 
     @@request_url = LazyLoader.create_lazy_loader do
-      SmartyStreets.api_url + "/zipcode"
+      SmartyStreets.api_url + '/zipcode'
     end
 
     def self.request_url
       @@request_url.get
     end
 
-    @@query = LazyLoader.create_lazy_loader do {
-        "auth-id" => SmartyStreets.auth_id,
-        "auth-token" => SmartyStreets.auth_token
+    @@query = LazyLoader.create_lazy_loader do
+      {
+        'auth-id' => SmartyStreets.auth_id,
+        'auth-token' => SmartyStreets.auth_token
       }
     end
 
@@ -49,9 +50,10 @@ module SmartyStreets
       MultiJson.dump(zipcode_requests)
     end
 
-    @@headers = LazyLoader.create_lazy_loader do {
-        "Content-Type" => "application/json",
-        "Accept" => "application/json"
+    @@headers = LazyLoader.create_lazy_loader do
+      {
+        'Content-Type' => 'application/json',
+        'Accept' => 'application/json'
       }
     end
 

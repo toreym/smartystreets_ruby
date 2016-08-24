@@ -1,7 +1,5 @@
 # SmartyStreets
 
-[![Build Status](https://travis-ci.org/peter-edge/smartystreets_ruby.png?branch=master)](https://travis-ci.org/peter-edge/smartystreets_ruby)
-
 SmartyStreets API Wrapper for Ruby.
 
 Wraps both the Street Address API and Zipcode API.
@@ -11,6 +9,11 @@ http://smartystreets.com/kb/liveaddress-api/
 https://github.com/smartystreets/LiveAddressSamples/tree/master/ruby
 
 ## Usage
+
+This can be installed directly from RubyGems.
+```bash
+gem install smartystreets
+```
 
 You must have a valid auth-id and auth-token from SmartyStreets.
 
@@ -52,16 +55,3 @@ zipcode_responses = SmartyStreets::ZipcodeApi.call(
 
 # [#<SmartyStreets::ZipcodeResponse:0x007fb5c51f22a0 @city_states=[#<SmartyStreets::ZipcodeResponse::CityState:0x007fb5c51f1c10 @city="New York", @state_abbreviation=nil, @state="New York">], @zipcodes=[#<SmartyStreets::ZipcodeResponse::ZipCode:0x007fb5c51f1508 @zipcode="10038", @zipcode_type="S", @county_fips="36061", @county_name="New York", @latitude=40.709145, @longitude=-74.004713>]>, #<SmartyStreets::ZipcodeResponse:0x007fb5c51f0798 @city_states=[#<SmartyStreets::ZipcodeResponse::CityState:0x007fb5c51fbf30 @city="New York", @state_abbreviation=nil, @state="New York">, #<SmartyStreets::ZipcodeResponse::CityState:0x007fb5c51fb468 @city="Manhattan", @state_abbreviation=nil, @state="New York">, #<SmartyStreets::ZipcodeResponse::CityState:0x007fb5c51fad38 @city="New York City", @state_abbreviation=nil, @state="New York">, #<SmartyStreets::ZipcodeResponse::CityState:0x007fb5c51fa5e0 @city="Ny", @state_abbreviation=nil, @state="New York">, #<SmartyStreets::ZipcodeResponse::CityState:0x007fb5c51f9e38 @city="Ny City", @state_abbreviation=nil, @state="New York">, #<SmartyStreets::ZipcodeResponse::CityState:0x007fb5c51f9780 @city="Nyc", @state_abbreviation=nil, @state="New York">], @zipcodes=[#<SmartyStreets::ZipcodeResponse::ZipCode:0x007fb5c51f90f0 @zipcode="10014", @zipcode_type="S", @county_fips="36061", @county_name="New York", @latitude=40.73378, @longitude=-74.00484>]>, #<SmartyStreets::ZipcodeResponse:0x007fb5c51f81f0 @error_status="invalid_zipcode">]
 ```
-
-Written for Locality  
-http://www.locality.com
-
-## Authors
-
-Peter Edge  
-peter@locality.com  
-http://github.com/peter-edge
-
-## License
-
-MIT

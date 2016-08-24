@@ -4,7 +4,7 @@ module SmartyStreets
 
   # Base class for json requests and responses.
   #
-  # @author Peter Edge (peter@locality.com)
+  # @author Peter Edge (peter.edge@gmail.com)
   class BaseJsonObject
     include Util
 
@@ -22,8 +22,8 @@ module SmartyStreets
     end
 
     def get_required_string(hash, key)
-      check_argument(hash[key] != nil)
-      check_argument(!hash[key].empty?)
+      check_argument(hash[key] != nil, -> { "#{key} was nil and should be a string"})
+      check_argument(!hash[key].empty?, -> { "#{key} was empty and should be a string"})
       check_type(hash[key], String)
     end
 
@@ -32,17 +32,26 @@ module SmartyStreets
     end
 
     def get_required_fixnum(hash, key)
-      check_argument(hash[key] != nil)
+      check_argument(hash[key] != nil, -> { "#{key} was nil and should be a fixnum"})
       check_type(hash[key], Fixnum)
     end
 
+    def get_optional_number(hash, key)
+      hash[key] != nil ? check_type(hash[key], Float, Fixnum) : nil
+    end
+
+    def get_required_number(hash, key)
+      check_argument(hash[key] != nil)
+      check_type(hash[key], Float, Fixnum)
+    end
+
     def get_optional_float(hash, key)
-      hash[key] != nil ? check_type(hash[key], Float) : nil
+      hash[key] != nil ? check_type(hash[key], Float, Integer) : nil
     end
 
     def get_required_float(hash, key)
-      check_argument(hash[key] != nil)
-      check_type(hash[key], Float)
+      check_argument(hash[key] != nil, -> { "#{key} was nil and should be a float"})
+      check_type(hash[key], Float, Integer)
     end
 
     def get_optional_boolean(hash, key)
@@ -50,7 +59,7 @@ module SmartyStreets
     end
 
     def get_required_boolean(hash, key)
-      check_argument(hash[key] != nil)
+      check_argument(hash[key] != nil, -> { "#{key} was nil and should be a boolean"})
       check_type(hash[key], TrueClass, FalseClass)
     end
 
@@ -59,8 +68,8 @@ module SmartyStreets
     end
 
     def get_required_hash(hash, key)
-      check_argument(hash[key] != nil)
-      check_argument(!hash[key].empty?)
+      check_argument(hash[key] != nil, -> { "#{key} was nil and should be a hash"})
+      check_argument(!hash[key].empty?, -> { "#{key} was empty and should be a hash"})
       check_type(hash[key], Hash)
     end
 
@@ -69,8 +78,8 @@ module SmartyStreets
     end
 
     def get_required_array(hash, key)
-      check_argument(hash[key] != nil)
-      check_argument(!hash[key].empty?)
+      check_argument(hash[key] != nil, -> { "#{key} was nil and should be a array"})
+      check_argument(!hash[key].empty?, -> { "#{key} was empty and should be a non-empty array"})
       check_type(hash[key], Array)
     end
   end

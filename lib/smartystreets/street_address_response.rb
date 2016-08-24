@@ -6,7 +6,7 @@ module SmartyStreets
 
   # Represents a response for a street address.
   #
-  # @author Peter Edge (peter@locality.com)
+  # @author Peter Edge (peter.edge@gmail.com)
   class StreetAddressResponse < BaseJsonObject
 
     attr_reader :input_id
@@ -117,8 +117,8 @@ module SmartyStreets
         @rdi = get_optional_string(hash, :rdi)
         @elot_sequence = get_optional_string(hash, :elot_sequence)
         @elot_sort = get_optional_string(hash, :elot_sort)
-        @latitude = get_optional_float(hash, :latitude)
-        @longitude = get_optional_float(hash, :longitude)
+        @latitude = get_optional_number(hash, :latitude)
+        @longitude = get_optional_number(hash, :longitude)
         @precision = get_optional_string(hash, :precision)
         @time_zone = get_optional_string(hash, :time_zone)
         @utc_offset = get_optional_fixnum(hash, :utc_offset)

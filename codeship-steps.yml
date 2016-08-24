@@ -1,0 +1,18 @@
+- type: matrix
+  services:
+    - ruby
+    - jruby
+  steps:
+  - type: parallel
+    steps:
+    - command: bundle exec rake
+    - type: serial
+      steps:
+      - command: touch /foo/bar
+      - command: ls /foo
+    - command: env
+  - tag: foo
+    command: echo this should only be run if tagged foo
+- tag: error
+  service: ruby
+  command: bash bin/error.sh
